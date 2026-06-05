@@ -1,0 +1,15 @@
+:root {
+  /* Colors */
+  --black-color: #070707;
+  --accent-green: #c9f000;
+  --accent-blue: #015697;
+
+  /* Transition */
+  --transition: all 0.5s;
+
+  /* Border-radius */
+  --border-radius: 22px;
+
+  /* Border */
+  --border: 1px solid var(--black-color);
+}

@@ -1,0 +1,42 @@
+@import url("./vars.css");
+
+/* Global */
+.body {
+  background-color: #fff;
+  font-family: "SF Pro Text";
+  line-height: 1.2;
+  font-size: 18px;
+  color: var(--black-color);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1386px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 38px;
+  text-transform: uppercase;
+}
+
+::selection {
+  background-color: var(--accent-green);
+  color: var(--black-color);
+}
+
+img {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
