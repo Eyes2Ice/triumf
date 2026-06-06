@@ -489,9 +489,6 @@
   border-radius: var(--border-radius);
 }
 
-.gallery__list .swiper-slide-active {
-}
-
 .gallery__navigation {
   display: flex;
   gap: 27px;
