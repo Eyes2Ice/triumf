@@ -40,3 +40,21 @@ img {
   -ms-user-select: none;
   user-select: none;
 }
+
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--accent-blue);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--accent-green);
+  border-radius: var(--border-radius);
+  border: 3px solid var(--black-color);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #d4ff55;
+}

@@ -1,5 +1,5 @@
 // Слайдер услуг
-const swiper = new Swiper(".services__slider", {
+new Swiper(".services__slider", {
   slidesPerView: 3,
   spaceBetween: 20,
 
@@ -9,10 +9,53 @@ const swiper = new Swiper(".services__slider", {
   },
 
   autoplay: {
-    delay: 2000,
+    delay: 3000,
   },
 
-  speed: 600,
+  speed: 2000,
 
   pauseOnInteraction: true,
+});
+
+// Слайдер отзывов
+new Swiper(".testimonials__slider", {
+  slidesPerView: 1,
+  spaceBetween: 33,
+
+  navigation: {
+    nextEl: ".testimonials__next",
+    prevEl: ".testimonials__prev",
+  },
+
+  autoplay: {
+    delay: 5000,
+  },
+
+  speed: 2000,
+
+  pauseOnInteraction: true,
+});
+
+// Слайдер фотографий
+new Swiper(".gallery__slider", {
+  slidesPerView: 5,
+  spaceBetween: 27,
+
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction",
+  },
+
+  navigation: {
+    nextEl: ".gallery__next",
+    prevEl: ".gallery__prev",
+  },
+
+  // autoplay: {
+  //   delay: 7000,
+  // },
+
+  // speed: 2000,
+
+  // pauseOnInteraction: true,
 });
