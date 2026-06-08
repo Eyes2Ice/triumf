@@ -38,7 +38,7 @@ new Swiper(".testimonials__slider", {
 
 // Слайдер фотографий
 new Swiper(".gallery__slider", {
-  slidesPerView: 5,
+  slidesPerView: "auto",
   spaceBetween: 27,
 
   pagination: {
@@ -50,6 +50,7 @@ new Swiper(".gallery__slider", {
     nextEl: ".gallery__next",
     prevEl: ".gallery__prev",
   },
+
 
   // autoplay: {
   //   delay: 7000,

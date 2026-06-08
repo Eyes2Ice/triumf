@@ -1,0 +1,12 @@
+@media (max-width: 1000px) {
+  /* Header */
+  .header__logo {
+    width: 140px;
+    aspect-ratio: 1;
+  }
+
+  .header__menu {
+    gap: 10px;
+    font-size: 22px;
+  }
+}
