@@ -37,26 +37,24 @@ new Swiper(".testimonials__slider", {
 });
 
 // Слайдер фотографий
-new Swiper(".gallery__slider", {
-  slidesPerView: "auto",
-  spaceBetween: 27,
-
-  pagination: {
-    el: ".swiper-pagination",
-    type: "fraction",
-  },
+const swiper = new Swiper(".gallery__slider", {
+  initialSlide: 1,
+  slidesPerView: 3,
+  spaceBetween: 109,
+  centeredSlides: true,
 
   navigation: {
     nextEl: ".gallery__next",
     prevEl: ".gallery__prev",
   },
 
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction",
+  },
 
-  // autoplay: {
-  //   delay: 7000,
-  // },
+  preloadImages: false,
+  slideToClickedSlide: true,
 
-  // speed: 2000,
-
-  // pauseOnInteraction: true,
+  speed: 300,
 });

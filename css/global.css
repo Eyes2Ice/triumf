@@ -30,6 +30,11 @@
   text-transform: uppercase;
 }
 
+.swiper-button-disabled {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 ::selection {
   background-color: var(--accent-green);
   color: var(--black-color);

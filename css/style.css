@@ -252,8 +252,6 @@
 
 .services__prev:hover,
 .services__next:hover,
-.services__prev:focus,
-.services__next:focus,
 .services__prev:active,
 .services__next:active {
   background-color: var(--accent-green);
@@ -261,8 +259,6 @@
 
 .services__prev:hover svg path,
 .services__next:hover svg path,
-.services__prev:focus svg path,
-.services__next:focus svg path,
 .services__prev:active svg path,
 .services__next:active svg path {
   stroke: var(--black-color);
@@ -399,8 +395,6 @@
 
 .testimonials__prev:hover,
 .testimonials__next:hover,
-.testimonials__prev:focus,
-.testimonials__next:focus,
 .testimonials__prev:active,
 .testimonials__next:active {
   background-color: var(--accent-green);
@@ -408,8 +402,6 @@
 
 .testimonials__prev:hover svg path,
 .testimonials__next:hover svg path,
-.testimonials__prev:focus svg path,
-.testimonials__next:focus svg path,
 .testimonials__prev:active svg path,
 .testimonials__next:active svg path {
   stroke: var(--black-color);
@@ -475,34 +467,46 @@
   font-size: 22px;
 }
 
+.gallery__slider .swiper-wrapper {
+  transition-timing-function: linear;
+}
+
 .gallery__list {
-  max-width: 1360px;
+  max-width: 1356px;
   height: 684px;
   display: flex;
+  align-items: center;
 }
 
 .gallery__item {
-  width: 204px !important;
-  height: 306px;
+  width: 356px;
+  height: 565px;
   border-radius: var(--border-radius);
   transition: var(--transition);
+  overflow: hidden;
 }
 
 .gallery__item.swiper-slide-active {
-  width: 430px !important;
-  height: 684px;
+  transform: scale(1.2);
 }
 
 .gallery__item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   border-radius: var(--border-radius);
+  object-fit: cover;
+}
+
+.gallery__controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 300px;
 }
 
 .gallery__navigation {
   display: flex;
-  gap: 27px;
+  gap: 10px;
 }
 
 .gallery__navigation svg path {
@@ -514,7 +518,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 68px;
+  width: 50px;
   aspect-ratio: 1;
   border: var(--border);
   border-radius: 50%;
@@ -527,8 +531,6 @@
 
 .gallery__prev:hover,
 .gallery__next:hover,
-.gallery__prev:focus,
-.gallery__next:focus,
 .gallery__prev:active,
 .gallery__next:active {
   background-color: var(--accent-green);
@@ -536,9 +538,118 @@
 
 .gallery__prev:hover svg path,
 .gallery__next:hover svg path,
-.gallery__prev:focus svg path,
-.gallery__next:focus svg path,
 .gallery__prev:active svg path,
 .gallery__next:active svg path {
   stroke: var(--black-color);
+}
+
+.gallery__controls .swiper-pagination {
+  position: static;
+  font-weight: 300;
+  font-size: 52px;
+  line-height: 1;
+}
+
+/* Message section */
+.message__inner {
+  display: flex;
+  gap: 33px;
+  padding-bottom: 120px;
+}
+
+.message__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: 664px;
+  width: 100%;
+  padding-left: 32px;
+  padding-bottom: 33px;
+  border: var(--border);
+  border-radius: 32px;
+}
+
+.message__title {
+  max-width: 317px;
+  margin-bottom: 10px;
+  line-height: 1.1;
+  text-transform: none;
+}
+
+.message__text {
+  max-width: 300px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.message__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.message__link:hover,
+.message__link:focus,
+.message__link:active {
+  transform: scale(1.5);
+}
+
+.message__link svg path {
+  transition: var(--transition);
+}
+
+.message__link:hover svg path,
+.message__link:focus svg path,
+.message__link:active svg path {
+  fill: var(--accent-green);
+}
+
+.message__button {
+  position: relative;
+  max-width: 360px;
+  padding-block: 16px;
+  border-radius: 26px;
+  background-color: var(--accent-green);
+  transition: var(--transition);
+  overflow: hidden;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.message__button:hover,
+.message__button:focus,
+.message__button:active {
+  box-shadow: 0 0 15px var(--accent-green);
+}
+
+.message__button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -60px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 20%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: translateY(-50%);
+  transition: none;
+  z-index: 0;
+}
+
+.message__button:hover::after,
+.message__button:focus::after,
+.message__button:active::after {
+  left: calc(100% + 60px);
+  transition: left 1.2s cubic-bezier(0.25, 1, 0.5, 1);
 }
