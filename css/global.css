@@ -1,6 +1,10 @@
 @import url("./vars.css");
 
 /* Global */
+html {
+  interpolate-size: allow-keywords;
+}
+
 .body {
   background-color: #fff;
   font-family: "SF Pro Text";
