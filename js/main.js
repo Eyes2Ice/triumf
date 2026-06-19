@@ -37,7 +37,7 @@ new Swiper(".testimonials__slider", {
 });
 
 // Слайдер фотографий
-const swiper = new Swiper(".gallery__slider", {
+new Swiper(".gallery__slider", {
   initialSlide: 1,
   slidesPerView: 3,
   spaceBetween: 109,
