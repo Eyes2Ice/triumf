@@ -60,7 +60,7 @@ img {
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--accent-green);
-  border-radius: var(--border-radius);
+  der-radius: var(--bordborer-radius);
   border: 3px solid var(--black-color);
 }
 
