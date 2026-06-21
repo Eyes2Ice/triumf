@@ -109,6 +109,9 @@
   position: absolute;
   top: 48px;
   right: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 200px;
   aspect-ratio: 1;
   background-color: var(--accent-green);
@@ -317,6 +320,9 @@
 
 .service__button {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-block: 18px;
   background-color: var(--accent-green);
   border-radius: var(--border-radius);
@@ -622,6 +628,9 @@
 
 .message__button {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 360px;
   padding-block: 16px;
   border-radius: 26px;
