@@ -8,12 +8,32 @@ const lenis = new Lenis({
   mouseMultiplier: 1,
 });
 
-// Запускаем бесконечный цикл анимации для пересчета координат прокрутки
 function raf(time) {
   lenis.raf(time);
   requestAnimationFrame(raf);
 }
 requestAnimationFrame(raf);
+
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+anchorLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const targetId = link.getAttribute("href");
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      lenis.scrollTo(targetElement, {
+        duration: 4,
+        immediate: false,
+        lock: true,
+
+        offset: -90,
+      });
+    }
+  });
+});
 
 // Слайдер услуг
 new Swiper(".services__slider", {

@@ -977,9 +977,31 @@
 }
 
 .footer__info a {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
+  max-width: 170px;
+  padding: 10px;
+  transition: var(--transition);
+}
+
+.footer__info a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--black-color);
+  transition: var(--transition) ease-out;
+  transform: translateX(-50%);
+}
+
+.footer__info a:hover::after,
+.footer__info a:focus::after,
+.footer__info a:active::after {
+  width: 100%;
 }
 
 .address__location,
