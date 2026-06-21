@@ -2,6 +2,7 @@
 
 /* Global */
 html {
+  scroll-behavior: smooth;
   interpolate-size: allow-keywords;
 }
 
@@ -18,7 +19,6 @@ html {
   flex-direction: column;
   min-height: 100%;
   width: 100%;
-  overflow: hidden;
 }
 
 .container {
@@ -50,6 +50,7 @@ img {
   user-select: none;
 }
 
+/* Scrollbar */
 *::-webkit-scrollbar {
   width: 15px;
 }
@@ -66,4 +67,87 @@ img {
 
 *::-webkit-scrollbar-thumb:hover {
   background-color: #d4ff55;
+}
+
+/* Animations */
+.fade-in-section {
+  animation: scrollFadeInOut linear both;
+  animation-timeline: view();
+
+  /* Возвращаем стандартные мягкие границы входа и выхода */
+  animation-range: entry 0% exit 100%;
+
+  /* Жестко заставляем браузер использовать видеокарту для плавной прокрутки */
+  will-change: transform, opacity;
+}
+
+@keyframes scrollFadeInOut {
+  /* ВХОД: Секция плавно начинает всплывать снизу */
+  0% {
+    opacity: 0;
+    /* Умеренный сдвиг (80px), который не перегружает процессор */
+    transform: translateY(80px) scale(0.96);
+  }
+
+  /* ПЛАВНОЕ ПРОЯВЛЕНИЕ: Точка, где секция доходит до 100% видимости.
+     Сдвинули с 15% до 30%, чтобы проявление было максимально мягким и долгим */
+  30%,
+  70% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* ВЫХОД: Секция так же плавно и неспешно растворяется к самому верху экрана */
+  100% {
+    opacity: 0;
+    transform: translateY(-80px) scale(0.96);
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical],
+.lenis [data-lenis-prevent-horizontal] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+.lenis.lenis-autoToggle {
+  transition-property: overflow;
+  transition-duration: 1ms;
+  transition-behavior: allow-discrete;
+}
+
+/* Cursor */
+html,
+body {
+  cursor:
+    url("../assets/img/icons/tennis-rocket.svg") 22 18,
+    default !important;
+}
+
+a,
+button,
+.gallery__item,
+.services__item,
+.gallery__prev,
+.gallery__next,
+.faq__question {
+  cursor:
+    url("../assets/img/icons/tennis-rocket.svg") 22 18,
+    pointer !important;
 }

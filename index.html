@@ -54,7 +54,7 @@
         </div>
       </header>
       <main>
-        <section class="hero">
+        <section class="hero fade-in-section">
           <div class="container">
             <div class="hero__inner">
               <header class="hero__header">
@@ -79,7 +79,7 @@
             </div>
           </div>
         </section>
-        <section class="about">
+        <section class="about fade-in-section">
           <div class="container">
             <div class="about__inner">
               <ul class="about__grid grid">
@@ -229,7 +229,7 @@
             </div>
           </div>
         </section>
-        <section class="services">
+        <section class="services fade-in-section">
           <div class="container">
             <div class="services__inner">
               <header class="services__header">
@@ -366,7 +366,7 @@
             </div>
           </div>
         </section>
-        <section class="testimonials">
+        <section class="testimonials fade-in-section">
           <div class="container">
             <div class="testimonials__inner">
               <header class="testimonials__header">
@@ -505,7 +505,7 @@
             </div>
           </div>
         </section>
-        <section class="gallery">
+        <section class="gallery fade-in-section">
           <div class="container">
             <div class="gallery__inner">
               <header class="gallery__header">
@@ -805,7 +805,7 @@
             </div>
           </div>
         </section>
-        <section class="message">
+        <section class="message fade-in-section">
           <div class="container">
             <div class="message__inner">
               <div class="message__info">
@@ -848,7 +848,7 @@
             </div>
           </div>
         </section>
-        <section class="faq">
+        <section class="faq fade-in-section">
           <div class="container">
             <div class="faq__inner">
               <header class="faq__header">
@@ -940,7 +940,7 @@
             </div>
           </div>
         </section>
-        <section class="contacts">
+        <section class="contacts fade-in-section">
           <div class="container">
             <div class="contacts__inner">
               <header class="contacts__header">
@@ -997,32 +997,32 @@
           </div>
         </section>
       </main>
-      <footer>
+      <footer class="fade-in-section">
         <div class="container">
           <div class="footer__inner">
-            <div class="footer__left">
-              <nav class="footer__nav">
-                <ul class="footer__menu menu">
-                  <li class="menu__item">
-                    <a href="#" class="menu__link">О нас</a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="#" class="menu__link">Услуги</a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="#" class="menu__link">Отзывы</a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="#" class="menu__link">Фото</a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="#" class="menu__link">FAQ</a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="#" class="menu__link">Контакты</a>
-                  </li>
-                </ul>
-              </nav>
+            <nav class="footer__nav">
+              <ul class="footer__menu menu">
+                <li class="menu__item">
+                  <a href="#" class="menu__link">О нас</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Услуги</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Отзывы</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Фото</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">FAQ</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Контакты</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="footer__body">
               <div class="details footer__details">
                 <h5>Реквизиты</h5>
                 <address>
@@ -1035,12 +1035,10 @@
                   </ul>
                 </address>
               </div>
-            </div>
-            <div class="footer__right">
-              <h5>Контакты</h5>
               <address class="footer__info address">
+                <h4>Контакты</h4>
                 <div class="address__location">
-                  <h4>Наш адрес</h4>
+                  <h5>Наш адрес</h5>
                   <p>
                     г. Ярославль
                     <br />
@@ -1048,7 +1046,7 @@
                   </p>
                 </div>
                 <div class="address__hours">
-                  <h4>Часы работы</h4>
+                  <h5>Часы работы</h5>
                   <p>
                     <time datetime="Mo-Su 8:00+03:00/22:00+03:00">
                       Ежедневно: с 8 до 23 часов
@@ -1056,7 +1054,7 @@
                   </p>
                 </div>
                 <div class="address__telegram">
-                  <h4>Здесь можно задать вопросы</h4>
+                  <h5>Здесь можно задать вопросы</h5>
                   <a href="#" aria-label="Ссылка на Telegram">
                     <svg
                       fill="none"
@@ -1075,12 +1073,21 @@
                 </div>
               </address>
             </div>
+            <img
+              src="./assets/img/icons/player.svg"
+              alt="Декоративное изображение человека с теннисной ракеткой"
+              class="footer__img"
+            />
           </div>
         </div>
       </footer>
     </div>
-    <script src="./js/swiper-bundle.min.js"></script>
-    <script src="./js/fslightbox.js"></script>
-    <script src="./js/main.js"></script>
+    <script defer src="./js/swiper-bundle.min.js"></script>
+    <script defer src="./js/fslightbox.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"
+    ></script>
+    <script defer src="./js/main.js"></script>
   </body>
 </html>

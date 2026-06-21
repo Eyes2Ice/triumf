@@ -1,3 +1,20 @@
+// Lenis
+const lenis = new Lenis({
+  duration: 1.2, // Длительность анимации прокрутки (в секундах). Чем больше, тем "вязче" скролл.
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  direction: "vertical",
+  gestureDirection: "vertical",
+  smoothWaveform: true,
+  mouseMultiplier: 1,
+});
+
+// Запускаем бесконечный цикл анимации для пересчета координат прокрутки
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
 // Слайдер услуг
 new Swiper(".services__slider", {
   slidesPerView: 3,
