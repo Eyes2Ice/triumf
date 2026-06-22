@@ -1,15 +1,13 @@
 // Animations
-// Проверяем, поддерживает ли браузер скролл-анимации на уровне CSS
 const supportsScrollTimeline = CSS.supports("animation-timeline: view()");
 
-// Если НЕ поддерживает (привет, Safari), запускаем нативный JS-наблюдатель
 if (!supportsScrollTimeline) {
   const sections = document.querySelectorAll(".fade-in-section");
 
   const observerOptions = {
     root: null,
-    rootMargin: "-20px 0px -20px 0px", // Небольшой отступ от краев экрана для мягкости
-    threshold: [0, 0.1, 0.9, 1], // Следим за моментами касания границ
+    rootMargin: "-20px 0px -20px 0px",
+    threshold: [0, 0.1, 0.9, 1],
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -18,19 +16,15 @@ if (!supportsScrollTimeline) {
       const bounding = entry.boundingClientRect;
 
       if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
-        // Секция зашла на экран — плавно проявляем её
         target.classList.add("is-visible");
         target.classList.remove("is-leaving-top", "is-leaving-bottom");
       } else {
-        // Секция вышла из зоны видимости. Проверяем вектор движения:
         target.classList.remove("is-visible");
 
         if (bounding.top < 0) {
-          // Верхняя граница блока ушла выше экрана -> секция скрылась НАВЕРХ
           target.classList.add("is-leaving-top");
           target.classList.remove("is-leaving-bottom");
         } else {
-          // Блок остался внизу под экраном -> секция скрылась ВНИЗ
           target.classList.add("is-leaving-bottom");
           target.classList.remove("is-leaving-top");
         }
@@ -38,9 +32,8 @@ if (!supportsScrollTimeline) {
     });
   }, observerOptions);
 
-  // Подготавливаем секции к старту
   sections.forEach((section) => {
-    section.classList.add("is-leaving-bottom"); // Изначально все секции «внизу»
+    section.classList.add("is-leaving-bottom");
     observer.observe(section);
   });
 }
@@ -53,6 +46,15 @@ const lenis = new Lenis({
   gestureDirection: "vertical",
   smoothWaveform: true,
   mouseMultiplier: 1,
+  smoothWheel: true,
+});
+
+window.addEventListener("mousedown", (e) => {
+  if (e.clientX >= document.documentElement.clientWidth - 25) {
+    if (lenis.isScrolling) {
+      lenis.scrollTo(window.scrollY, { immediate: true });
+    }
+  }
 });
 
 function raf(time) {
