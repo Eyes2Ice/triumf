@@ -1,6 +1,53 @@
+// Animations
+// Проверяем, поддерживает ли браузер скролл-анимации на уровне CSS
+const supportsScrollTimeline = CSS.supports("animation-timeline: view()");
+
+// Если НЕ поддерживает (привет, Safari), запускаем нативный JS-наблюдатель
+if (!supportsScrollTimeline) {
+  const sections = document.querySelectorAll(".fade-in-section");
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "-20px 0px -20px 0px", // Небольшой отступ от краев экрана для мягкости
+    threshold: [0, 0.1, 0.9, 1], // Следим за моментами касания границ
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const target = entry.target;
+      const bounding = entry.boundingClientRect;
+
+      if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
+        // Секция зашла на экран — плавно проявляем её
+        target.classList.add("is-visible");
+        target.classList.remove("is-leaving-top", "is-leaving-bottom");
+      } else {
+        // Секция вышла из зоны видимости. Проверяем вектор движения:
+        target.classList.remove("is-visible");
+
+        if (bounding.top < 0) {
+          // Верхняя граница блока ушла выше экрана -> секция скрылась НАВЕРХ
+          target.classList.add("is-leaving-top");
+          target.classList.remove("is-leaving-bottom");
+        } else {
+          // Блок остался внизу под экраном -> секция скрылась ВНИЗ
+          target.classList.add("is-leaving-bottom");
+          target.classList.remove("is-leaving-top");
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Подготавливаем секции к старту
+  sections.forEach((section) => {
+    section.classList.add("is-leaving-bottom"); // Изначально все секции «внизу»
+    observer.observe(section);
+  });
+}
+
 // Lenis
 const lenis = new Lenis({
-  duration: 1.2, // Длительность анимации прокрутки (в секундах). Чем больше, тем "вязче" скролл.
+  duration: 1.2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   direction: "vertical",
   gestureDirection: "vertical",
@@ -25,7 +72,7 @@ anchorLinks.forEach((link) => {
 
     if (targetElement) {
       lenis.scrollTo(targetElement, {
-        duration: 4,
+        duration: 1.5,
         immediate: false,
         lock: true,
 

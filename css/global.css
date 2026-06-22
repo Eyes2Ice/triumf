@@ -70,37 +70,58 @@ img {
 }
 
 /* Animations */
+/* Базовое состояние для ВСЕХ секций на сайте */
 .fade-in-section {
-  animation: scrollFadeInOut linear both;
-  animation-timeline: view();
-
-  /* Возвращаем стандартные мягкие границы входа и выхода */
-  animation-range: entry 0% exit 100%;
-
-  /* Жестко заставляем браузер использовать видеокарту для плавной прокрутки */
   will-change: transform, opacity;
+  /* Задаем плавность переходов для Safari/Firefox */
+  transition:
+    opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-@keyframes scrollFadeInOut {
-  /* ВХОД: Секция плавно начинает всплывать снизу */
-  0% {
-    opacity: 0;
-    /* Умеренный сдвиг (80px), который не перегружает процессор */
-    transform: translateY(80px) scale(0.96);
+/* 1. Класс ВХОДА (Секция находится глубоко внизу, ждет скролла) */
+.fade-in-section.is-leaving-bottom {
+  opacity: 0;
+  transform: translateY(80px) scale(0.96);
+}
+
+/* 2. Класс ВИДИМОСТИ (Секция зашла на экран и встала в идеал) */
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 3. Класс ВЫХОДА НАВЕРХ (Секция улетела под потолок экрана) */
+.fade-in-section.is-leaving-top {
+  opacity: 0;
+  transform: translateY(-80px) scale(0.96);
+}
+
+/* --- МАГИЯ ДЛЯ CHROME / EDGE / OPERA --- */
+/* Если браузер умеет крутить попиксельный скролл в CSS, мы отключаем transition 
+   и запускаем наш старый, затяжной scroll-timeline */
+@supports (animation-timeline: view()) {
+  .fade-in-section {
+    transition: none !important; /* Убираем transition, чтобы он не спорил с кейфреймами */
+    animation: scrollFadeInOut linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
   }
 
-  /* ПЛАВНОЕ ПРОЯВЛЕНИЕ: Точка, где секция доходит до 100% видимости.
-     Сдвинули с 15% до 30%, чтобы проявление было максимально мягким и долгим */
-  30%,
-  70% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
-  /* ВЫХОД: Секция так же плавно и неспешно растворяется к самому верху экрана */
-  100% {
-    opacity: 0;
-    transform: translateY(-80px) scale(0.96);
+  @keyframes scrollFadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(80px) scale(0.96);
+    }
+    30%,
+    70% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-80px) scale(0.96);
+    }
   }
 }
 
