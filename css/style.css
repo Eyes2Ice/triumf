@@ -801,7 +801,7 @@
 .contacts__info {
   display: flex;
   flex-direction: column;
-  gap: 55px;
+  gap: 35px;
 }
 
 .contacts__info h4 {
@@ -833,11 +833,14 @@
 }
 
 .contacts__info a {
+  transition: var(--transition);
+}
+
+.contacts__info .address__telegram a {
   gap: 15px;
   position: relative;
   max-width: 305px;
   padding-bottom: 10px;
-  transition: var(--transition);
 }
 
 .contacts__info a:hover,
@@ -846,7 +849,7 @@
   color: var(--accent-blue);
 }
 
-.contacts__info a::after {
+.contacts__info .address__telegram a::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -896,6 +899,12 @@
   animation-delay: 1.5s;
 }
 
+.contacts__info .address__phone ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 @keyframes bgWaveTwoElements {
   0%,
   100% {
@@ -922,7 +931,6 @@
 .footer__body {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   max-width: 600px;
 }
 
@@ -986,16 +994,19 @@
 }
 
 .footer__info a {
+  transition: var(--transition);
+}
+
+.footer__info .address__telegram a {
   position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
   max-width: 170px;
   padding: 10px;
-  transition: var(--transition);
 }
 
-.footer__info a::after {
+.footer__info .address__telegram a::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -1013,9 +1024,10 @@
   width: 100%;
 }
 
-.address__location,
-.address__hours,
-.address__telegram {
+.footer__info .address__location,
+.footer__info .address__hours,
+.footer__info .address__telegram,
+.footer__info .address__phone {
   margin-bottom: 18px;
 }
 

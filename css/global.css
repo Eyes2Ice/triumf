@@ -61,7 +61,6 @@ img {
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--accent-green);
-  der-radius: var(--bordborer-radius);
   border: 3px solid var(--black-color);
 }
 
@@ -70,39 +69,31 @@ img {
 }
 
 /* Animations */
-/* Базовое состояние для ВСЕХ секций на сайте */
 .fade-in-section {
   will-change: transform, opacity;
-  /* Задаем плавность переходов для Safari/Firefox */
   transition:
     opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
     transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* 1. Класс ВХОДА (Секция находится глубоко внизу, ждет скролла) */
 .fade-in-section.is-leaving-bottom {
   opacity: 0;
   transform: translateY(80px) scale(0.96);
 }
 
-/* 2. Класс ВИДИМОСТИ (Секция зашла на экран и встала в идеал) */
 .fade-in-section.is-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
-/* 3. Класс ВЫХОДА НАВЕРХ (Секция улетела под потолок экрана) */
 .fade-in-section.is-leaving-top {
   opacity: 0;
   transform: translateY(-80px) scale(0.96);
 }
 
-/* --- МАГИЯ ДЛЯ CHROME / EDGE / OPERA --- */
-/* Если браузер умеет крутить попиксельный скролл в CSS, мы отключаем transition 
-   и запускаем наш старый, затяжной scroll-timeline */
 @supports (animation-timeline: view()) {
   .fade-in-section {
-    transition: none !important; /* Убираем transition, чтобы он не спорил с кейфреймами */
+    transition: none !important;
     animation: scrollFadeInOut linear both;
     animation-timeline: view();
     animation-range: entry 0% exit 100%;
