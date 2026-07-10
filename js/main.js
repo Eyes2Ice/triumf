@@ -144,8 +144,8 @@ anchorLinks.forEach((link) => {
 
 // Слайдер услуг
 new Swiper(".services__slider", {
-  slidesPerView: 3,
-  spaceBetween: 20,
+  slidesPerView: 1,
+  spaceBetween: 16,
   navigation: {
     nextEl: ".services__next",
     prevEl: ".services__prev",
@@ -155,6 +155,16 @@ new Swiper(".services__slider", {
   },
   speed: 2000,
   pauseOnInteraction: true,
+  breakpoints: {
+    576: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    992: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+  },
 });
 
 // Слайдер отзывов

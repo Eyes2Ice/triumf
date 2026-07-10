@@ -81,7 +81,7 @@
 .hero__inner {
   display: flex;
   flex-direction: column;
-  padding-bottom: clamp(3.75rem, 2.36rem + 5.86vw, 7.75rem);
+  padding-bottom: 120px;
 }
 
 .hero__header {
@@ -197,7 +197,7 @@
 
 /* About section */
 .about__inner {
-  padding-bottom: clamp(3.75rem, 2.45rem + 5.56vw, 7.5rem);
+  padding-bottom: 120px;
 }
 
 .about__grid {
@@ -312,12 +312,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 38px;
+  margin-bottom: clamp(1.25rem, 0.85rem + 1.67vw, 2.375rem);
 }
 
 .services__navigation {
   display: flex;
-  gap: 27px;
+  gap: clamp(12px, 2vw, 27px);
 }
 
 .services__navigation svg path {
@@ -329,7 +329,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 68px;
+  width: clamp(50px, 1.5vw + 44px, 68px);
   aspect-ratio: 1;
   border: var(--border);
   border-radius: 50%;
@@ -363,7 +363,7 @@
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  height: 630px;
+  height: clamp(450px, 15vw + 392px, 630px);
   padding: 0 20px 19px 20px;
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -391,7 +391,7 @@
 .service__title {
   margin-bottom: 6px;
   font-weight: 600;
-  font-size: 36px;
+  font-size: clamp(1.5rem, 1.22rem + 1.11vw, 2.25rem);
   color: #fff;
 }
 
@@ -400,6 +400,7 @@
   opacity: 0.8;
   line-height: 1.5;
   color: #fff;
+  font-size: clamp(0.938rem, 0.87rem + 0.28vw, 1.125rem);
 }
 
 .service__button {
