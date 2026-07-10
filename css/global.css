@@ -4,6 +4,7 @@
 html {
   scroll-behavior: smooth;
   interpolate-size: allow-keywords;
+  font-size: 100%;
 }
 
 .body {
@@ -12,6 +13,7 @@ html {
   line-height: 1.2;
   font-size: 18px;
   color: var(--black-color);
+  overflow-x: hidden;
 }
 
 .wrapper {
@@ -30,7 +32,7 @@ html {
 
 .title {
   font-weight: 700;
-  font-size: 38px;
+  font-size: var(--font-size-title);
   text-transform: uppercase;
 }
 
@@ -48,6 +50,9 @@ img {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Scrollbar */
@@ -168,4 +173,26 @@ button,
   cursor:
     url("../assets/img/icons/tennis-rocket.svg") 22 18,
     pointer !important;
+}
+
+/* Скрываем кастомный курсор на тач-устройствах (смартфоны/планшеты), так как там нет наведения */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body {
+    cursor:
+      url("../assets/img/icons/tennis-rocket.svg") 22 18,
+      default !important;
+  }
+
+  a,
+  button,
+  .gallery__item,
+  .services__item,
+  .gallery__prev,
+  .gallery__next,
+  .faq__question {
+    cursor:
+      url("../assets/img/icons/tennis-rocket.svg") 22 18,
+      pointer !important;
+  }
 }
