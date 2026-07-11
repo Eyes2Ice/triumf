@@ -151,6 +151,11 @@
   .services__inner {
     padding-bottom: 80px;
   }
+
+  /* Testimonials */
+  .testimonials__inner {
+    padding-bottom: 80px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -232,6 +237,11 @@
 
   /* Services */
   .services__inner {
+    padding-bottom: 20px;
+  }
+
+  /* Testimonials */
+  .testimonials__inner {
     padding-bottom: 20px;
   }
 }
