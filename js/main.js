@@ -20,15 +20,15 @@ function preventDefaultScroll(e) {
   e.preventDefault();
 }
 
-// Мобильное меню
+// Мобильное меню (Оптимизированное для работы с Lenis)
 document.addEventListener("DOMContentLoaded", () => {
   const burgerButton = document.querySelector(".header__burger");
   const headerNav = document.querySelector(".header__nav");
   const menuLinks = document.querySelectorAll(".menu__link");
   const body = document.body;
-  const html = document.documentElement; // ПОЧИНИЛИ: теперь переменная определена
+  const html = document.documentElement;
 
-  function toggleMenu() {
+  window.toggleMenu = function () {
     const isOpen = headerNav.classList.toggle("header__nav--opened");
 
     burgerButton.textContent = isOpen ? "Закрыть" : "Меню";
@@ -38,12 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
       body.style.overflow = "hidden";
       html.style.overflow = "hidden";
 
-      // Блокируем Lenis
       if (typeof lenis !== "undefined") {
         lenis.stop();
       }
 
-      // Жесткий костыль для iOS/Android Safari: запрещаем двигать страницу пальцем
       window.addEventListener("touchmove", preventDefaultScroll, {
         passive: false,
       });
@@ -51,24 +49,52 @@ document.addEventListener("DOMContentLoaded", () => {
       body.style.overflow = "";
       html.style.overflow = "";
 
-      // Включаем Lenis обратно
       if (typeof lenis !== "undefined") {
         lenis.start();
       }
 
-      // Разрешаем тач-скролл обратно
       window.removeEventListener("touchmove", preventDefaultScroll);
     }
-  }
+  };
 
-  burgerButton.addEventListener("click", toggleMenu);
+  burgerButton.addEventListener("click", window.toggleMenu);
+});
 
-  menuLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      if (headerNav.classList.contains("header__nav--opened")) {
-        toggleMenu();
+// Плавный скролл к якорям через Lenis (Синхронизирован с меню)
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+anchorLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const targetId = link.getAttribute("href");
+    const targetElement = document.querySelector(targetId);
+    const headerNav = document.querySelector(".header__nav");
+
+    if (targetElement) {
+      if (headerNav && headerNav.classList.contains("header__nav--opened")) {
+        // 1. Сначала закрываем меню и возвращаем тач-события браузеру
+        if (typeof window.toggleMenu === "function") {
+          window.toggleMenu();
+        }
+
+        setTimeout(() => {
+          lenis.scrollTo(targetElement, {
+            duration: 1.5,
+            immediate: false,
+            lock: true,
+            offset: -90,
+          });
+        }, 10);
+      } else {
+        lenis.scrollTo(targetElement, {
+          duration: 1.5,
+          immediate: false,
+          lock: true,
+          offset: -90,
+        });
       }
-    });
+    }
   });
 });
 
@@ -122,25 +148,25 @@ window.addEventListener("mousedown", (e) => {
 });
 
 // Плавный скролл к якорям через Lenis
-const anchorLinks = document.querySelectorAll('a[href^="#"]');
+// const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
-anchorLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
+// anchorLinks.forEach((link) => {
+//   link.addEventListener("click", (e) => {
+//     e.preventDefault();
 
-    const targetId = link.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
+//     const targetId = link.getAttribute("href");
+//     const targetElement = document.querySelector(targetId);
 
-    if (targetElement) {
-      lenis.scrollTo(targetElement, {
-        duration: 1.5,
-        immediate: false,
-        lock: true,
-        offset: -90,
-      });
-    }
-  });
-});
+//     if (targetElement) {
+//       lenis.scrollTo(targetElement, {
+//         duration: 1.5,
+//         immediate: false,
+//         lock: true,
+//         offset: -90,
+//       });
+//     }
+//   });
+// });
 
 // Слайдер услуг
 new Swiper(".services__slider", {
