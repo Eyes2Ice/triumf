@@ -43,6 +43,22 @@
     top: 38%;
     left: 44%;
   }
+
+  /* Message */
+  .message__inner {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .message__info {
+    max-width: 100%;
+    justify-content: center;
+    min-height: 280px;
+  }
+
+  .message__img {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 800px) {
@@ -181,6 +197,11 @@
   .gallery__item {
     width: 100%;
   }
+
+  /* Message */
+  .message__inner {
+    padding-bottom: 80px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -277,5 +298,28 @@
 
   .gallery__item {
     aspect-ratio: 1 / 1.3;
+  }
+
+  /* Message */
+  .message__inner {
+    padding-bottom: 20px;
+  }
+
+  .message__info {
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .message__title {
+    max-width: 100%;
+  }
+
+  .message__text {
+    max-width: 100%;
+  }
+
+  .message__button {
+    max-width: 100%;
   }
 }

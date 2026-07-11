@@ -666,8 +666,8 @@
   justify-content: flex-end;
   max-width: 664px;
   width: 100%;
-  padding-left: 32px;
-  padding-bottom: 33px;
+  padding: clamp(30px, 4vw, 50px) clamp(15px, 3vw, 32px) 33px
+    clamp(15px, 3vw, 32px);
   border: var(--border);
   border-radius: 32px;
 }
@@ -677,12 +677,14 @@
   margin-bottom: 10px;
   line-height: 1.1;
   text-transform: none;
+  font-size: clamp(1.625rem, 1.34rem + 0.93vw, 2.375rem);
 }
 
 .message__text {
   max-width: 300px;
   margin-bottom: 10px;
   line-height: 1.5;
+  font-size: clamp(1rem, 0.94rem + 0.22vw, 1.125rem);
 }
 
 .message__text strong {
@@ -722,6 +724,7 @@
   justify-content: center;
   align-items: center;
   max-width: 360px;
+  width: 100%;
   padding-block: 16px;
   border-radius: 26px;
   background-color: var(--accent-green);
@@ -766,11 +769,14 @@
 
 .message__img {
   max-width: 663px;
+  width: 100%;
   border-radius: 32px;
 }
 
 .message__img img {
+  display: block;
   width: 100%;
+  height: auto;
   border-radius: 32px;
 }
 
