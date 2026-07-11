@@ -346,7 +346,7 @@
     justify-content: center;
   }
 
-  .address__telegram {
+  .footer .address__telegram {
     display: flex;
     flex-direction: column;
     align-items: center;
