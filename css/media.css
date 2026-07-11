@@ -59,6 +59,28 @@
   .message__img {
     max-width: 100%;
   }
+
+  /* FAQ */
+  .faq__inner {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  faq__header {
+    max-width: 100%;
+  }
+
+  .faq__title {
+    max-width: 100%;
+  }
+
+  .faq__text {
+    max-width: 100%;
+  }
+
+  .faq__group {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 800px) {
@@ -202,6 +224,11 @@
   .message__inner {
     padding-bottom: 80px;
   }
+
+  /* FAQ */
+  .faq__inner {
+    margin-bottom: 80px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -321,5 +348,11 @@
 
   .message__button {
     max-width: 100%;
+  }
+
+  /* FAQ */
+  .faq__inner {
+    margin-bottom: 20px;
+    border-radius: 24px;
   }
 }

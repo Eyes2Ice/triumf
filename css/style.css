@@ -785,23 +785,29 @@
 .faq__inner {
   display: flex;
   justify-content: space-between;
+  gap: 40px;
   margin-bottom: 120px;
-  padding: 37px 51px 76px 38px;
+  padding: clamp(20px, 3.5vw, 37px) clamp(15px, 4vw, 51px)
+    clamp(30px, 6vw, 76px) clamp(15px, 3.5vw, 38px);
   border-radius: 32px;
   background-color: var(--accent-green);
+}
+
+.faq__header {
+  flex-shrink: 0;
 }
 
 .faq__title {
   max-width: 544px;
   margin-bottom: 18px;
   line-height: 1;
-  font-size: 46px;
+  font-size: clamp(1.75rem, 1.41rem + 1.67vw, 2.875rem);
   text-transform: none;
 }
 
 .faq__text {
   max-width: 506px;
-  font-size: 20px;
+  font-size: clamp(1rem, 0.92rem + 0.37vw, 1.25rem);
 }
 
 .faq__group {
@@ -822,13 +828,19 @@
 .faq__question {
   display: flex;
   justify-content: space-between;
-  padding: 25px;
+  align-items: center;
+  gap: 15px;
+  padding: clamp(1rem, 0.83rem + 0.83vw, 1.563rem);
   border-radius: 13px;
   cursor: pointer;
   list-style: none;
   user-select: none;
   font-weight: 700;
-  font-size: 22px;
+  font-size: clamp(1rem, 0.89rem + 0.56vw, 1.375rem);
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
 }
 
 .faq__question::after {
@@ -864,7 +876,14 @@
 }
 
 .faq__answer {
-  padding: 25px;
+  padding: 0 clamp(1rem, 0.83rem + 0.83vw, 1.563rem)
+    clamp(1rem, 0.83rem + 0.83vw, 1.563rem);
+  font-size: clamp(0.938rem, 0.88rem + 0.28vw, 1.125rem);
+  line-height: 1.5;
+}
+
+.faq__answer p {
+  margin: 0;
 }
 
 /* Contacts */
