@@ -556,13 +556,14 @@
 
 .gallery__title {
   margin-bottom: 22px;
+  font-size: clamp(1.625rem, 1.34rem + 0.93vw, 2.375rem);
 }
 
 .gallery__subtitle {
-  margin-bottom: 39px;
+  margin-bottom: clamp(1.25rem, 0.77rem + 2.01vw, 2.438rem);
   opacity: 0.7;
   line-height: 1.5;
-  font-size: 22px;
+  font-size: clamp(1rem, 0.85rem + 0.63vw, 1.375rem);
 }
 
 .gallery__subtitle strong {

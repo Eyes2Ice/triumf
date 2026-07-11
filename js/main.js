@@ -184,10 +184,11 @@ new Swiper(".testimonials__slider", {
 
 // Слайдер фотографий
 new Swiper(".gallery__slider", {
-  initialSlide: 1,
-  slidesPerView: 3,
-  spaceBetween: 109,
-  centeredSlides: true,
+  initialSlide: 0,
+  centeredSlides: false,
+  slidesPerView: 1,
+  spaceBetween: 16,
+
   navigation: {
     nextEl: ".gallery__next",
     prevEl: ".gallery__prev",
@@ -199,4 +200,17 @@ new Swiper(".gallery__slider", {
   preloadImages: false,
   slideToClickedSlide: true,
   speed: 300,
+
+  breakpoints: {
+    800: {
+      slidesPerView: 2,
+      spaceBetween: 32,
+    },
+    1440: {
+      initialSlide: 1,
+      slidesPerView: 3,
+      spaceBetween: 109,
+      centeredSlides: true,
+    },
+  },
 });
