@@ -95,6 +95,10 @@
     aspect-ratio: auto;
   }
 
+  .contacts__img {
+    display: none;
+  }
+
   /* Footer */
   .footer__body {
     flex-direction: column;
@@ -358,6 +362,11 @@
 
   .footer__img {
     display: none;
+  }
+
+  /* Contacts */
+  .contacts__widget {
+    border: 1px solid var(--black-color);
   }
 }
 
