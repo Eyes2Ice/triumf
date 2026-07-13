@@ -239,6 +239,10 @@
     width: 100%;
   }
 
+  .gallery__item a {
+    pointer-events: none;
+  }
+
   /* Message */
   .message__inner {
     padding-bottom: 80px;

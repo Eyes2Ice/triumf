@@ -147,6 +147,41 @@ window.addEventListener("mousedown", (e) => {
   }
 });
 
+// Отключение fslightbox на мобильных устройствах
+document.addEventListener("DOMContentLoaded", () => {
+  const galleryLinks = document.querySelectorAll(
+    'a[data-fslightbox="gallery"]',
+  );
+
+  function handleGalleryLinks() {
+    if (window.innerWidth <= 800) {
+      galleryLinks.forEach((link) => {
+        if (link.hasAttribute("data-fslightbox")) {
+          link.removeAttribute("data-fslightbox");
+          link.setAttribute("data-disabled-lightbox", "true");
+        }
+        link.addEventListener("click", preventLightboxClick);
+      });
+    } else {
+      galleryLinks.forEach((link) => {
+        if (link.getAttribute("data-disabled-lightbox") === "true") {
+          link.setAttribute("data-fslightbox", "gallery");
+          link.removeAttribute("data-disabled-lightbox");
+        }
+        link.removeEventListener("click", preventLightboxClick);
+      });
+    }
+  }
+
+  function preventLightboxClick(e) {
+    e.preventDefault();
+  }
+
+  handleGalleryLinks();
+
+  window.addEventListener("resize", handleGalleryLinks);
+});
+
 // Слайдер услуг
 new Swiper(".services__slider", {
   slidesPerView: 1,
