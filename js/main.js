@@ -147,27 +147,6 @@ window.addEventListener("mousedown", (e) => {
   }
 });
 
-// Плавный скролл к якорям через Lenis
-// const anchorLinks = document.querySelectorAll('a[href^="#"]');
-
-// anchorLinks.forEach((link) => {
-//   link.addEventListener("click", (e) => {
-//     e.preventDefault();
-
-//     const targetId = link.getAttribute("href");
-//     const targetElement = document.querySelector(targetId);
-
-//     if (targetElement) {
-//       lenis.scrollTo(targetElement, {
-//         duration: 1.5,
-//         immediate: false,
-//         lock: true,
-//         offset: -90,
-//       });
-//     }
-//   });
-// });
-
 // Слайдер услуг
 new Swiper(".services__slider", {
   slidesPerView: 1,
@@ -179,16 +158,18 @@ new Swiper(".services__slider", {
   autoplay: {
     delay: 3000,
   },
-  speed: 2000,
+  speed: 1000,
   pauseOnInteraction: true,
   breakpoints: {
     576: {
       slidesPerView: 2,
       spaceBetween: 20,
+      speed: 1500,
     },
     992: {
       slidesPerView: 3,
       spaceBetween: 20,
+      speed: 2000,
     },
   },
 });
@@ -206,6 +187,15 @@ new Swiper(".testimonials__slider", {
   },
   speed: 2000,
   pauseOnInteraction: true,
+
+  breakpoints: {
+    576: {
+      speed: 1500,
+    },
+    992: {
+      speed: 2000,
+    },
+  },
 });
 
 // Слайдер фотографий
