@@ -1,0 +1,212 @@
+/* Global */
+html {
+  scroll-behavior: smooth;
+  interpolate-size: allow-keywords;
+  font-size: 100%;
+}
+
+.body {
+  background-color: #fff;
+  font-family: "SF Pro Text";
+  line-height: 1.2;
+  font-size: 18px;
+  color: var(--black-color);
+  overflow-x: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+}
+
+.container {
+  max-width: 1386px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: var(--font-size-title);
+  text-transform: uppercase;
+}
+
+.swiper-button-disabled {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+::selection {
+  background-color: var(--accent-green);
+  color: var(--black-color);
+}
+
+img {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Scrollbar */
+@media (hover: hover) and (pointer: fine) {
+  *::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--accent-blue);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--accent-green);
+    border: 3px solid var(--black-color);
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #d4ff55;
+  }
+}
+
+@media (max-width: 1024px) {
+  html,
+  body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    width: 0px !important;
+    height: 0px !important;
+    display: none !important;
+  }
+}
+
+/* Animations */
+.fade-in-section {
+  will-change: transform, opacity;
+  transition:
+    opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fade-in-section.is-leaving-bottom {
+  opacity: 0;
+  transform: translateY(80px) scale(0.96);
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.fade-in-section.is-leaving-top {
+  opacity: 0;
+  transform: translateY(-80px) scale(0.96);
+}
+
+@supports (animation-timeline: view()) {
+  .fade-in-section {
+    transition: none !important;
+    animation: scrollFadeInOut linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  @keyframes scrollFadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(80px) scale(0.96);
+    }
+    30%,
+    70% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-80px) scale(0.96);
+    }
+  }
+}
+
+/* Lenis */
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical],
+.lenis [data-lenis-prevent-horizontal] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+.lenis.lenis-autoToggle {
+  transition-property: overflow;
+  transition-duration: 1ms;
+  transition-behavior: allow-discrete;
+}
+
+/* Cursor */
+html,
+body {
+  cursor:
+    url("../assets/img/icons/tennis-rocket.svg") 22 18,
+    default !important;
+}
+
+a,
+button,
+.gallery__item,
+.services__item,
+.gallery__prev,
+.gallery__next,
+.faq__question {
+  cursor:
+    url("../assets/img/icons/tennis-rocket.svg") 22 18,
+    pointer !important;
+}
+
+/* Скрываем кастомный курсор на тач-устройствах (смартфоны/планшеты), так как там нет наведения */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body {
+    cursor:
+      url("../assets/img/icons/tennis-rocket.svg") 22 18,
+      default !important;
+  }
+
+  a,
+  button,
+  .gallery__item,
+  .services__item,
+  .gallery__prev,
+  .gallery__next,
+  .faq__question {
+    cursor:
+      url("../assets/img/icons/tennis-rocket.svg") 22 18,
+      pointer !important;
+  }
+}

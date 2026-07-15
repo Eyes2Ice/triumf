@@ -1,0 +1,476 @@
+@media (max-width: 1440px) {
+  /* Gallery */
+  .gallery__list {
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .gallery__item.swiper-slide-active {
+    transform: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  /* About */
+  .about__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid__heading {
+    grid-column: span 3;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Hero */
+  .hero__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .hero__title {
+    max-width: 100%;
+  }
+
+  .hero__subtitle {
+    max-width: 100%;
+  }
+
+  .reservation {
+    width: 130px;
+    top: 38%;
+    left: 44%;
+  }
+
+  /* Message */
+  .message__inner {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .message__info {
+    max-width: 100%;
+    justify-content: center;
+    min-height: 280px;
+  }
+
+  .message__img {
+    max-width: 100%;
+  }
+
+  /* FAQ */
+  .faq__inner {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .faq__header {
+    max-width: 100%;
+  }
+
+  .faq__title {
+    max-width: 100%;
+  }
+
+  .faq__text {
+    max-width: 100%;
+  }
+
+  .faq__group {
+    max-width: 100%;
+  }
+
+  /* Contacts */
+  .contacts__body {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .contacts__map {
+    max-width: 100%;
+    height: 400px;
+    aspect-ratio: auto;
+  }
+
+  .contacts__img {
+    display: none;
+  }
+
+  /* Footer */
+  .footer__body {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 800px) {
+  /* Header */
+  .header__logo {
+    width: 130px;
+  }
+
+  .header__burger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    aspect-ratio: 1;
+    background-color: var(--accent-green);
+    border: 2px solid var(--accent-blue);
+    border-radius: 50%;
+
+    animation:
+      tennisIntro 0.4s ease-in 1 forwards,
+      tennisBounce 4.5s infinite 0.4s;
+    will-change: transform;
+
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  @keyframes tennisIntro {
+    0% {
+      transform: translateY(-150px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes tennisBounce {
+    0% {
+      transform: translateY(0);
+    }
+
+    12% {
+      transform: translateY(-45px);
+      animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    24% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    34% {
+      transform: translateY(-20px);
+      animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    44% {
+      transform: translateY(0);
+    }
+
+    44.1%,
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .header__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      transform 0.5s ease-in-out,
+      opacity 0.5s ease-in-out;
+    z-index: -1;
+  }
+
+  .header__nav--opened {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header__menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    font-size: 28px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .menu__link {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Hero */
+  .hero__inner {
+    padding-bottom: 80px;
+  }
+
+  /* About */
+  .about__inner {
+    padding-bottom: 80px;
+  }
+
+  /* Services */
+  .services__inner {
+    padding-bottom: 80px;
+  }
+
+  /* Testimonials */
+  .testimonials__inner {
+    padding-bottom: 80px;
+  }
+
+  /* Gallery */
+  .gallery__inner {
+    padding-bottom: 80px;
+  }
+
+  .gallery__slider {
+    max-width: 500px;
+  }
+
+  .gallery__item {
+    width: 100%;
+  }
+
+  .gallery__item a {
+    pointer-events: none;
+  }
+
+  /* Message */
+  .message__inner {
+    padding-bottom: 80px;
+  }
+
+  /* FAQ */
+  .faq__inner {
+    margin-bottom: 80px;
+  }
+
+  /* Contacts */
+  .contacts__inner {
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* About */
+  .about__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid__heading {
+    grid-column: span 2;
+  }
+
+  .grid__info {
+    height: auto;
+    min-height: 220px;
+  }
+
+  /* Footer */
+  .footer__menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .footer__menu .menu__item:first-child .menu__link {
+    padding-left: 10px;
+  }
+
+  .footer__menu .menu__link {
+    display: block;
+    max-width: fit-content;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Hero */
+  .hero__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 280px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .reservation {
+    display: none;
+  }
+
+  .hero__link {
+    display: flex;
+  }
+
+  /* Services */
+  .services__header {
+    gap: 16px;
+  }
+
+  /* Footer */
+
+  .footer__menu {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .footer__menu .menu__link {
+    width: max-content;
+    margin: 0 auto;
+    display: block;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .footer__body {
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer__info,
+  .footer__details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__info .address__telegram a {
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .footer .address__telegram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__img {
+    display: none;
+  }
+
+  /* Contacts */
+  .contacts__widget {
+    border: 1px solid var(--black-color);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hero */
+  .hero__inner {
+    padding-bottom: 20px;
+  }
+
+  /* About */
+  .about__inner {
+    padding-bottom: 20px;
+  }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
+  .grid__heading {
+    grid-column: span 1;
+  }
+
+  .grid__item {
+    height: auto;
+  }
+
+  .grid__info {
+    min-height: auto;
+    padding: 20px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .grid__image {
+    height: 240px;
+  }
+
+  /* Services */
+  .services__inner {
+    padding-bottom: 20px;
+  }
+
+  /* Testimonials */
+  .testimonials__inner {
+    padding-bottom: 20px;
+  }
+
+  /* Gallery */
+  .gallery__inner {
+    padding-bottom: 20px;
+  }
+
+  .gallery__item {
+    aspect-ratio: 1 / 1.3;
+  }
+
+  /* Message */
+  .message__inner {
+    padding-bottom: 20px;
+  }
+
+  .message__info {
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .message__title {
+    max-width: 100%;
+  }
+
+  .message__text {
+    max-width: 100%;
+  }
+
+  .message__button {
+    max-width: 100%;
+  }
+
+  /* FAQ */
+  .faq__inner {
+    margin-bottom: 20px;
+    border-radius: 24px;
+  }
+
+  /* Contacts */
+  .contacts__inner {
+    padding-bottom: 20px;
+  }
+
+  .contacts__map {
+    height: 300px;
+    border-radius: 24px;
+  }
+
+  .contacts__map iframe {
+    border-radius: 24px;
+  }
+
+  /* Footer */
+  .footer__inner {
+    border-radius: 24px;
+  }
+}
