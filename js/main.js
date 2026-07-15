@@ -150,7 +150,7 @@ window.addEventListener("mousedown", (e) => {
 // Отключение fslightbox на мобильных устройствах
 document.addEventListener("DOMContentLoaded", () => {
   const galleryLinks = document.querySelectorAll(
-    'a[data-fslightbox="gallery"]',
+    '[data-fslightbox="gallery"], [data-disabled-lightbox="true"]',
   );
 
   function handleGalleryLinks() {
@@ -160,26 +160,41 @@ document.addEventListener("DOMContentLoaded", () => {
           link.removeAttribute("data-fslightbox");
           link.setAttribute("data-disabled-lightbox", "true");
         }
-        link.addEventListener("click", preventLightboxClick);
       });
+
+      if (typeof refreshFsLightbox === "function") {
+        refreshFsLightbox();
+      }
     } else {
       galleryLinks.forEach((link) => {
         if (link.getAttribute("data-disabled-lightbox") === "true") {
           link.setAttribute("data-fslightbox", "gallery");
           link.removeAttribute("data-disabled-lightbox");
         }
-        link.removeEventListener("click", preventLightboxClick);
       });
+
+      if (typeof refreshFsLightbox === "function") {
+        refreshFsLightbox();
+      }
     }
   }
 
-  function preventLightboxClick(e) {
-    e.preventDefault();
-  }
-
   handleGalleryLinks();
-
   window.addEventListener("resize", handleGalleryLinks);
+
+  document.querySelector(".gallery").addEventListener(
+    "click",
+    (e) => {
+      if (
+        window.innerWidth <= 800 &&
+        e.target.closest('[data-disabled-lightbox="true"]')
+      ) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    },
+    true,
+  );
 });
 
 // Слайдер услуг
